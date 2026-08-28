@@ -1,0 +1,880 @@
+html_content = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeira Fina | Móveis de Madeira Maciça e Decoração High-End</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1c2321;
+            --primary-light: #2c3531;
+            --accent: #c5a059;
+            --accent-hover: #b08c46;
+            --bg-light: #faf8f5;
+            --surface: #ffffff;
+            --text: #2d3748;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Top Notification Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: #d1d5db;
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .top-bar strong {
+            color: var(--accent);
+        }
+
+        /* Navigation Header */
+        header {
+            background: var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nav-contacts {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-header {
+            background: #25D366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+            transition: var(--transition);
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+        }
+
+        /* TOP SECTION: SERVICES HIGHLIGHT */
+        .services-top-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .services-top-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-top-title {
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .services-grid-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .service-card-top {
+            background: var(--bg-light);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .service-card-top:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+            background: #fff;
+        }
+
+        .service-icon-top {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .service-info-top h4 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-info-top p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Hero Ads Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(28,35,33,0.92) 0%, rgba(44,53,49,0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: #fff;
+            padding: 80px 20px 100px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-weight: 300;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Proof / Metrics Strip */
+        .proof-strip {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .proof-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .proof-item h3 span {
+            color: var(--accent);
+        }
+
+        .proof-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Products / Collections Highlighting */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .product-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .product-body {
+            padding: 22px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 18px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .price-tag {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .price-tag strong {
+            display: block;
+            font-size: 1.15rem;
+            color: var(--accent);
+        }
+
+        .btn-card {
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-card:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Ad Special Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #1c2321 0%, #2c3531 100%);
+            border-radius: 20px;
+            padding: 50px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .promo-content h2 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .promo-content h2 span {
+            color: var(--accent);
+        }
+
+        .promo-content p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .promo-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .promo-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .promo-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Institutional & Transparency Section */
+        .info-section {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .info-block h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .company-details {
+            list-style: none;
+        }
+
+        .company-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.92rem;
+        }
+
+        .company-details li strong {
+            color: var(--primary);
+        }
+
+        .company-details li span {
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #9ca3af;
+            padding: 60px 20px 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-col p {
+            line-height: 1.7;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        /* Floating WhatsApp for conversion */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 2000;
+            text-decoration: none;
+            font-size: 30px;
+            transition: var(--transition);
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 900px) {
+            .promo-banner {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .proof-strip {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Notification Bar -->
+    <div class="top-bar">
+        <div>🚚 <strong>Frete VIP & Entrega em Todo o Brasil</strong> | Móveis Direto de Fábrica</div>
+        <div>💳 <strong>Em até 12x Sem Juros</strong> ou <strong>25% OFF à Vista</strong></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="https://madeirafina.com.br/" class="logo">
+                <div class="logo-icon">MF</div>
+                <div class="logo-text">MADEIRA <span>FINA</span></div>
+            </a>
+            <div class="nav-contacts">
+                <a href="tel:4441410394" class="phone-link">
+                    📞 (44) 4141-0394
+                </a>
+                <a href="https://wa.me/5544988018973?text=Ol%C3%A1!%20Vim%20pelo%20Google%20e%20gostaria%20de%20um%20or%C3%A7amento%20exclusivo." target="_blank" class="btn-header">
+                    <span>💬 Atendimento VIP 24h</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION: PRINCIPAIS SERVIÇOS NO TOPO DA PÁGINA -->
+    <section class="services-top-bar">
+        <div class="services-top-container">
+            <div class="services-top-title">✦ Nossas Especialidades & Serviços Exclusivos ✦</div>
+            <div class="services-grid-top">
+                <div class="service-card-top">
+                    <div class="service-icon-top">🛋️</div>
+                    <div class="service-info-top">
+                        <h4>Móveis de Madeira Maciça</h4>
+                        <p>Design nobre de altíssima durabilidade e sofisticação.</p>
+                    </div>
+                </div>
+                <div class="service-card-top">
+                    <div class="service-icon-top">📐</div>
+                    <div class="service-info-top">
+                        <h4>Projetos Sob Medida</h4>
+                        <p>Planejados exclusivos para salas, quartos e escritórios.</p>
+                    </div>
+                </div>
+                <div class="service-card-top">
+                    <div class="service-icon-top">👑</div>
+                    <div class="service-info-top">
+                        <h4>Estilo Luís XV & Clássico</h4>
+                        <p>Acabamento artesanal refinado e entalhes exclusivos.</p>
+                    </div>
+                </div>
+                <div class="service-card-top">
+                    <div class="service-icon-top">🚚</div>
+                    <div class="service-info-top">
+                        <h4>Logística Especializada</h4>
+                        <p>Entrega rápida, segura e garantida em todo o país.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section (Criativo de Conversão Google Ads) -->
+    <section class="hero">
+        <span class="hero-badge">Oferta de Alta Decoração</span>
+        <h1>Transforme Seu Lar com a Nobreza da <span>Madeira Maciça</span></h1>
+        <p>Móveis exclusivos de alto padrão com condições diretas de fábrica. A elegância clássica e contemporânea com até 25% de desconto à vista.</p>
+        <div class="hero-cta-group">
+            <a href="https://wa.me/5544988018973?text=Quero%20aproveitar%20o%20desconto%20de%20Google%20Ads!" class="btn-primary">Solicitar Orçamento no WhatsApp</a>
+            <a href="#colecao" class="btn-secondary">Ver Coleção Exclusiva</a>
+        </div>
+    </section>
+
+    <!-- Proof Strip -->
+    <div class="proof-strip">
+        <div class="proof-item">
+            <h3>25% <span>OFF</span></h3>
+            <p>Pagamento à vista via PIX/Boleto</p>
+        </div>
+        <div class="proof-item">
+            <h3>12x <span>Sem Juros</span></h3>
+            <p>Facilidade em todos os cartões</p>
+        </div>
+        <div class="proof-item">
+            <h3>24h <span>Humano</span></h3>
+            <p>Atendimento sem robôs via WhatsApp</p>
+        </div>
+        <div class="proof-item">
+            <h3>100% <span>Garantido</span></h3>
+            <p>Qualidade comprovada por clientes</p>
+        </div>
+    </div>
+
+    <!-- Product Highlights Section -->
+    <section class="section" id="colecao">
+        <div class="section-header">
+            <h2>Destaques da Nossa Coleção</h2>
+            <p>Peças selecionadas que unificam tradição, conforto e sofisticação para ambientes exigentes.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80');">
+                    <span class="product-tag">Pronta Entrega</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Mesas de Jantar de Madeira Maciça</h3>
+                    <p class="product-desc">Conjuntos imponentes para criar memórias inesquecíveis na sua sala de jantar.</p>
+                    <div class="product-footer">
+                        <div class="price-tag">
+                            À vista com desconto
+                            <strong>Até 25% OFF</strong>
+                        </div>
+                        <a href="https://wa.me/5544988018973?text=Quero%20saber%20mais%20sobre%20Mesas%20de%20Jantar" class="btn-card">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1580481072645-022f9a6d8310?auto=format&fit=crop&w=800&q=80');">
+                    <span class="product-tag">Design Exclusivo</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Cadeiras & Poltronas com Tela</h3>
+                    <p class="product-desc">Modelos como Valquíria e Noah, unindo a naturalidade da madeira e o conforto da palhinha.</p>
+                    <div class="product-footer">
+                        <div class="price-tag">
+                            Em até 12x
+                            <strong>Sem Juros</strong>
+                        </div>
+                        <a href="https://wa.me/5544988018973?text=Quero%20saber%20mais%20sobre%20Cadeiras%20e%20Poltronas" class="btn-card">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80');">
+                    <span class="product-tag">Estilo Luís XV</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Móveis Clássicos & Cristaleiras</h3>
+                    <p class="product-desc">Acabamento requintado para salas de estar, escritórios e quartos de luxo.</p>
+                    <div class="product-footer">
+                        <div class="price-tag">
+                            Condição Especial
+                            <strong>Direto de Fábrica</strong>
+                        </div>
+                        <a href="https://wa.me/5544988018973?text=Quero%20saber%20mais%20sobre%20Móveis%20Luís%20XV" class="btn-card">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Ad Banner Section -->
+    <section class="section">
+        <div class="promo-banner">
+            <div class="promo-content">
+                <h2>Projetando um Novo Ambiente? <span>Fale Conosco!</span></h2>
+                <p>Receba atendimento personalizado imediato por consultores especializados em decoração de alto padrão. Não utilizamos robôs!</p>
+                <ul class="promo-features">
+                    <li>Consultoria técnica em acabamentos de madeira</li>
+                    <li>Orçamentos ágeis sob medida para seu projeto</li>
+                    <li>Condições de pagamento customizadas</li>
+                </ul>
+                <a href="https://wa.me/5544988018973?text=Gostaria%20de%20uma%20consultoria%20personalizada" class="btn-primary">Falar com Consultor Agora</a>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Móveis Madeira Fina" style="width:100%; border-radius: 12px; box-shadow: var(--shadow);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional & CNPJ / Address Section -->
+    <section class="section">
+        <div class="info-section">
+            <div class="section-header" style="margin-bottom:30px;">
+                <h2>Transparência & Dados da Empresa</h2>
+                <p>Compre com total segurança em uma loja consolidada no mercado.</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-block">
+                    <h3>Identificação Oficial</h3>
+                    <ul class="company-details">
+                        <li><strong>Razão Social:</strong> <span>Madeira Fina Comércio Eletrônico</span></li>
+                        <li><strong>CNPJ:</strong> <span>19.649.042/0001-86</span></li>
+                        <li><strong>Inscrição Estadual:</strong> <span>906.55343-01</span></li>
+                        <li><strong>Atendimento:</strong> <span>Humano 24 Horas / 7 Dias</span></li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>Atendimento & Unidades</h3>
+                    <ul class="company-details">
+                        <li><strong>WhatsApp / Telegram:</strong> <span>(44) 9 8801-8973</span></li>
+                        <li><strong>Telefone Fixo Maringá - PR:</strong> <span>(44) 4141-0394</span></li>
+                        <li><strong>Atendimento São Paulo - SP:</strong> <span>(11) 3663-4258</span></li>
+                        <li><strong>Loja Oficial:</strong> <span>madeirafina.com.br</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Madeira Fina</h4>
+                <p>Especialista em móveis de madeira maciça, estilo clássico, contemporâneo e sob medida. Levando elegância, sofisticação e qualidade incomparável para lares de todo o Brasil.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categorias Principais</h4>
+                <p>• Sala de Jantar & Conjuntos<br>• Cadeiras & Poltronas de Tela<br>• Linha Clássica Luís XV<br>• Buffets, Cristaleiras & Racks<br>• Móveis de Quarto & Escritório</p>
+            </div>
+            <div class="footer-col">
+                <h4>Segurança e Facilidades</h4>
+                <p>🔒 Site Protegido com Criptografia SSL<br>💳 Pagamento Facilitado em 12x<br>🏷️ 25% de Desconto para Pagamentos À Vista<br>📦 Entregas Monitoradas em Todo o Brasil</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Madeira Fina - CNPJ: 19.649.042/0001-86. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button for Google Ads Conversion -->
+    <a href="https://wa.me/5544988018973?text=Ol%C3%A1!%20Estou%20no%20site%20da%20Madeira%20Fina%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="float-whatsapp" target="_blank" title="Fale pelo WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>
+"""
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Arquivo index.html gerado com sucesso!")
